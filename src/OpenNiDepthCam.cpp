@@ -19,6 +19,17 @@ struct OpenNiDepthCam::Impl
 			device.open(openni::ANY_DEVICE);
 		depth.create(device, openni::SENSOR_DEPTH);
 		color.create(device, openni::SENSOR_COLOR);
+
+		openni::VideoMode dm = depth.getVideoMode();
+		dm.setResolution(640, 480);
+		depth.setMirroringEnabled(false);
+		depth.setVideoMode(dm);
+
+		openni::VideoMode cm = color.getVideoMode();
+		cm.setResolution(640, 480);
+		color.setMirroringEnabled(false);
+		color.setVideoMode(cm);
+		
 		depth.start();
 		color.start();
 	}
