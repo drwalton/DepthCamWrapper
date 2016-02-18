@@ -1,0 +1,70 @@
+find_path(OPENCV_INCLUDE_DIRS
+	NAMES
+		opencv2/opencv.hpp
+	PATHS
+		"C:/local/opencv/opencv-2.4.11/build/install/include"
+)
+
+set(LIB_PATHS
+		"C:/local/opencv/opencv-2.4.11/build/install/x86/vc12/lib"
+)
+
+find_library(OPENCV_CALIB3D_LIBRARY
+	NAMES
+		opencv_calib3d2411
+	PATHS
+		${LIB_PATHS}
+)
+find_library(OPENCV_CONTRIB_LIBRARY
+	NAMES
+		opencv_contrib2411
+	PATHS
+		${LIB_PATHS}
+)
+find_library(OPENCV_CORE_LIBRARY
+	NAMES
+		opencv_core2411
+	PATHS
+		${LIB_PATHS}
+)
+find_library(OPENCV_FEATURES2D_LIBRARY
+	NAMES
+		opencv_features2d2411
+	PATHS
+		${LIB_PATHS}
+)
+find_library(OPENCV_FLANN_LIBRARY
+	NAMES
+		opencv_flann2411
+	PATHS
+		${LIB_PATHS}
+)
+find_library(OPENCV_GPU_LIBRARY
+	NAMES
+		opencv_gpu2411
+	PATHS
+		${LIB_PATHS}
+)
+find_library(OPENCV_HIGHGUI_LIBRARY
+	NAMES
+		opencv_highgui2411
+	PATHS
+		${LIB_PATHS}
+)
+find_library(OPENCV_IMGPROC_LIBRARY
+	NAMES
+		opencv_imgproc2411
+	PATHS
+		${LIB_PATHS}
+)
+
+set(OPENCV_LIBRARIES
+	${OPENCV_CALIB3D_LIBRARY}
+	${OPENCV_CONTRIB_LIBRARY}
+	${OPENCV_CORE_LIBRARY}
+	${OPENCV_FEATURES2D_LIBRARY}
+	${OPENCV_FLANN_LIBRARY}
+	${OPENCV_GPU_LIBRARY}
+	${OPENCV_HIGHGUI_LIBRARY}
+	${OPENCV_IMGPROC_LIBRARY}
+)

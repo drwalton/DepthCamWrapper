@@ -9,21 +9,41 @@ struct OpenNiDepthCam::Impl
 	openni::VideoStream color;
 	openni::VideoFrameRef depthFrame;
 	openni::VideoFrameRef colorFrame;
+
+	void init(const std::string &uri)
+	{
+		openni::OpenNI::initialize();
+		if (uri != std::string(""))
+			device.open(uri.c_str());
+		else
+			device.open(openni::ANY_DEVICE);
+		depth.create(device, openni::SENSOR_DEPTH);
+		color.create(device, openni::SENSOR_COLOR);
+		depth.start();
+		color.start();
+	}
 };
 
 OpenNiDepthCam::OpenNiDepthCam(const std::string &uri)
 :pimpl_(new Impl())
 {
-	openni::OpenNI::initialize();
-	pimpl_->device.open(uri.c_str());
-	pimpl_->depth.create(pimpl_->device, openni::SENSOR_DEPTH);
-	pimpl_->color.create(pimpl_->device, openni::SENSOR_COLOR);
-	pimpl_->depth.start();
-	pimpl_->color.start();
+	pimpl_->init(uri);
+}
+
+OpenNiDepthCam::OpenNiDepthCam()
+: pimpl_(new Impl())
+{
+	pimpl_->init("");
 }
 
 OpenNiDepthCam::~OpenNiDepthCam()
-{}
+{
+	pimpl_->depth.stop();
+	pimpl_->color.stop();
+	pimpl_->depth.destroy();
+	pimpl_->color.destroy();
+	openni::OpenNI::shutdown();
+}
 
 void OpenNiDepthCam::getLatestFrames()
 {

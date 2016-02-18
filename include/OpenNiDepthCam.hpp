@@ -8,6 +8,7 @@
 class OpenNiDepthCam : public DepthCam
 {
 public:
+	explicit OpenNiDepthCam();
 	explicit OpenNiDepthCam(const std::string &uri);
 	virtual ~OpenNiDepthCam() throw();
 

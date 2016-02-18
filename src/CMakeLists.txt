@@ -1,4 +1,4 @@
-add_library(DepthCamWrapper
+add_library(DepthCamWrapper STATIC
 	../include/DepthCam.hpp
 	../include/KinectDepthCam.hpp
 	../include/OpenNiDepthCam.hpp
@@ -14,5 +14,10 @@ if(WIN32)
 	set(LIBS ${LIBS} ${KINECT18_LIBRARIES})
 endif(WIN32)
 
-target_link_libraries(DepthCamWrapper ${LIBS})
+message("ONI2LIBS ${OPENNI2_LIBRARIES}")
+target_link_libraries(DepthCamWrapper ${OPENNI2_LIBRARIES})
+
+include_directories(${OPENCV_INCLUDE_DIRS})
+add_executable(DepthCamViewer DepthCamViewer.cpp)
+target_link_libraries(DepthCamViewer DepthCamWrapper ${LIBS} ${OPENCV_LIBRARIES})
 

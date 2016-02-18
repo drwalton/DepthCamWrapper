@@ -6,9 +6,7 @@
 class DepthCam
 {
 public:
-	static std::unique_ptr<DepthCam> openDefaultDepthCam();
-
-	virtual ~DepthCam() throw() = 0;
+	virtual ~DepthCam() throw();
 
 	virtual void getLatestFrames() = 0;
 	virtual const unsigned short *const depthFramePtr() const = 0;
@@ -21,5 +19,7 @@ public:
 protected:
 	explicit DepthCam();
 };
+
+std::unique_ptr<DepthCam> openDefaultDepthCam();
 
 #endif

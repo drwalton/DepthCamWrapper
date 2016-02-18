@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(DepthCamWrapper CXX)
 
-set(PROJECT_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
+set(CMAKE_BINARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 
@@ -10,6 +10,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 find_package(OpenNI2)
 find_package(Kinect18)
+find_package(OpenCV REQUIRED)
 
 include_directories(${OPENNI2_INCLUDE_DIRS})
 if(WIN32)
