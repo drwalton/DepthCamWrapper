@@ -2,3 +2,8 @@
 build/
 bin/
 
+#Vim Stuff
+*.swp
+
+
+
