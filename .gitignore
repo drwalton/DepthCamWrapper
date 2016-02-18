@@ -1,9 +1,8 @@
 #Build Files
 build/
 bin/
+lib/
 
 #Vim Stuff
 *.swp
-
-
 
