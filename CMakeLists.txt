@@ -8,9 +8,9 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
-find_package(OpenNI2)
+find_package(OpenNI2 REQUIRED)
 find_package(Kinect18)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV)
 
 include_directories(${OPENNI2_INCLUDE_DIRS})
 if(WIN32)

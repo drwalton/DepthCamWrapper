@@ -17,7 +17,9 @@ endif(WIN32)
 message("ONI2LIBS ${OPENNI2_LIBRARIES}")
 target_link_libraries(DepthCamWrapper ${OPENNI2_LIBRARIES})
 
-include_directories(${OPENCV_INCLUDE_DIRS})
-add_executable(DepthCamViewer DepthCamViewer.cpp)
-target_link_libraries(DepthCamViewer DepthCamWrapper ${LIBS} ${OPENCV_LIBRARIES})
+if(OPENCV_FOUND)
+	include_directories(${OPENCV_INCLUDE_DIRS})
+	add_executable(DepthCamViewer DepthCamViewer.cpp)
+	target_link_libraries(DepthCamViewer DepthCamWrapper ${LIBS} ${OPENCV_LIBRARIES})
+endif(OPENCV_FOUND)
 

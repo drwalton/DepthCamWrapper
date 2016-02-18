@@ -5,6 +5,10 @@ find_path(OPENCV_INCLUDE_DIRS
 		"C:/local/opencv/opencv-2.4.11/build/install/include"
 )
 
+if(NOT ${OPENCV_INCLUDE_DIRS} EQUAL OPENCV_INCLUDE_DIRS-NOTFOUND)
+	set(OPENCV_FOUND TRUE)
+endif(NOT ${OPENCV_INCLUDE_DIRS} EQUAL OPENCV_INCLUDE_DIRS-NOTFOUND)
+
 set(LIB_PATHS
 		"C:/local/opencv/opencv-2.4.11/build/install/x86/vc12/lib"
 )
