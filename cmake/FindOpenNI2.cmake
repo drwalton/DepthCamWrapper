@@ -17,7 +17,7 @@ if(NOT ${OPENNI2_INCLUDE_DIRS} EQUAL OPENNI2_INCLUDE_DIRS-NOTFOUND)
 	set(OPENNI2_FOUND TRUE)
 endif(NOT ${OPENNI2_INCLUDE_DIRS} EQUAL OPENNI2_INCLUDE_DIRS-NOTFOUND)
 
-set(LIB_PATHS /usr/local/lib /opt/local/lib ~/lib/openni2/bin/x64-Release)
+set(LIB_PATHS /usr/local/lib /opt/local/lib ~/lib/openni2/Bin/x64-Release)
 
 if(WIN32)
 	set(LIB_PATHS ${LIB_PATHS}
@@ -30,4 +30,6 @@ find_library(OPENNI2_LIBRARIES
 	PATHS
 		${LIB_PATHS}
 )
+
+message("OpenNI2 Lib Found: ${OPENNI2_LIBRARIES}")
 
