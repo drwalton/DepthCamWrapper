@@ -1,6 +1,6 @@
 set(WIN32_PATHS "C:/Program Files (x86)/OpenNI2/Include")
 
-set(PATHS)
+set(PATHS /usr/local/include /opt/local/include ~/lib/openni2/include)
 
 if(WIN32)
 	set(PATHS ${PATHS} ${WIN32_PATHS})
@@ -17,7 +17,7 @@ if(NOT ${OPENNI2_INCLUDE_DIRS} EQUAL OPENNI2_INCLUDE_DIRS-NOTFOUND)
 	set(OPENNI2_FOUND TRUE)
 endif(NOT ${OPENNI2_INCLUDE_DIRS} EQUAL OPENNI2_INCLUDE_DIRS-NOTFOUND)
 
-set(LIB_PATHS)
+set(LIB_PATHS /usr/local/lib /opt/local/lib ~/lib/openni2/bin/x64-Release)
 
 if(WIN32)
 	set(LIB_PATHS ${LIB_PATHS}

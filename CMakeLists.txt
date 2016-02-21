@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.0)
 
 project(DepthCamWrapper CXX)
 
@@ -19,4 +19,13 @@ endif(WIN32)
 
 include_directories(include)
 add_subdirectory(src)
+
+install(
+	FILES
+		include/DepthCam.hpp
+		include/KinectDepthCam.hpp
+		include/OpenNiDepthCam.hpp
+	DESTINATION
+		include/DepthCamWrapper
+)
 

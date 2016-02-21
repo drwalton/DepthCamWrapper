@@ -62,7 +62,7 @@ OpenNiDepthCam::OpenNiDepthCam()
 	pimpl_->init("");
 }
 
-OpenNiDepthCam::~OpenNiDepthCam()
+OpenNiDepthCam::~OpenNiDepthCam() throw()
 {
 	pimpl_->depth.stop();
 	pimpl_->color.stop();

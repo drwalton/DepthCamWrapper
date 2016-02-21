@@ -2,6 +2,7 @@
 build/
 bin/
 lib/
+xcode/
 
 #Vim Stuff
 *.swp
